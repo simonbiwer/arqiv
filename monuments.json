@@ -1,0 +1,12 @@
+{
+  "monument1": {
+    "name": "Monument A",
+    "location": "Location A",
+    "description": "A historic monument."
+  },
+  "monument2": {
+    "name": "Monument B",
+    "location": "Location B",
+    "description": "Another historic site."
+  }
+}
