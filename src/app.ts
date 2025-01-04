@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(express.static('public'));
 
 app.get("/vcard", (req: Request, res: Response) => {
 
@@ -17,7 +18,7 @@ app.get("/vcard", (req: Request, res: Response) => {
   res.send(vCard.getFormattedString());
 });
 
-app.post("/update", async (req: Request, res: Response) => {
+app.put("/update", async (req: Request, res: Response) => {
   const { key, oldCard } = req.body;
 
   if (!key || !oldCard) {
@@ -33,10 +34,10 @@ app.post("/update", async (req: Request, res: Response) => {
       return res.status(404).json({ error: "Key not found." });
     }
     const museumVCard = new MuseumVCard(oldCard.firstName, oldCard.lastName, oldCard.email);
-    const updatedVCard = updateCard(museumVCard, monument);
+    const updatedVCard = updateCard(museumVCard, monument, req);
 
     res.setHeader("Content-Type", "text/vcard");
-    res.setHeader("Content-Disposition", `attachment; filename="updated_contact.vcf"`);
+    res.setHeader("Content-Disposition", `attachment; filename="updated_vcard.vcf"`);
     res.send(updatedVCard.getFormattedString());
   } catch (error) {
     console.error(error);
