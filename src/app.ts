@@ -2,11 +2,13 @@ import express, { Request, Response } from "express";
 import {createVCard, updateCard} from "./vCardCreator";
 import fs from "fs/promises";
 import {MuseumVCard} from "./MuseumVCard";
+import cors from 'cors';
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors());
 app.use(express.static('public'));
 
 app.get("/vcard", (req: Request, res: Response) => {
