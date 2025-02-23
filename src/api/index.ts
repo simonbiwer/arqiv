@@ -6,6 +6,6 @@ const router = Router();
 router.post("/collection", createCollection);
 router.get("/collection/:userId", getCollection);
 router.put("/collection", updateCollection);
-router.get("/monument", getMonument)
+router.get("/monument/:monumentKey", getMonument)
 
 export default router;

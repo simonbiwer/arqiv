@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import {createUUID} from "../utils";
-import {MonumentCollection, MonumentCollectionModel} from "../model/MonumentCollection";
+import {MonumentCollectionModel} from "../model/MonumentCollection";
 import {MonumentModel} from "../model/Monument";
 
 const MONUMENTS = "monuments";
@@ -57,6 +57,12 @@ export async function updateCollection(req: Request, res: Response) {
     }
 }
 
-export function getMonument(req: Request, res: Response) {
-    // Todo: get a specific monument
+export async function getMonument(req: Request, res: Response) {
+    const monumentKey = req.params.monumentKey;
+    const monument = await MonumentModel.findOne( {key: monumentKey });
+    if (!monument) {
+        res.status(404).send("Monument with this key does not exist");
+    } else {
+        res.status(200).send(monument);
+    }
 }
