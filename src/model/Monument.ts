@@ -1,17 +1,19 @@
 import mongoose from "mongoose";
 
 export interface Monument {
+    key: string;
     name: string;
     location: string;
     description: string;
-    modelPath: string
+    modelPath: string;
 }
 
-export const MonumentSchema = new mongoose.Schema({
-    name: { type: Number, required: true, unique: true },
-    location: { type: Number, required: true },
+export const MonumentSchema = new mongoose.Schema<Monument>({
+    key: {type: String, required: true, unique: true},
+    name: { type: String, required: true, unique: true },
+    location: { type: String, required: true },
     description: { type: String, required: true },
-    modelPath: { type: Number, required: true, unique: true },
+    modelPath: { type: String, required: true, unique: true },
 })
 
-export const MonumentModel = mongoose.model("monument", MonumentSchema);
+export const MonumentModel = mongoose.model<Monument>("Monument", MonumentSchema);

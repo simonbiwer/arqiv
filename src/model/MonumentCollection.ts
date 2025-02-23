@@ -3,20 +3,9 @@ import {Monument} from "./Monument";
 
 export type UUID = string & { readonly __brand: unique symbol };
 
-export class MonumentCollection {
-    private readonly monuments: Monument[];
-
-    constructor(readonly userId: UUID) {
-        this.monuments = [];
-    }
-
-    addMonument(monument: Monument) {
-        this.monuments.push(monument);
-    }
-
-    getMonuments() {
-        return this.monuments;
-    }
+export interface MonumentCollection {
+    userId: UUID;
+    monuments: Monument[];
 }
 
 const MonumentCollectionSchema = new mongoose.Schema({
@@ -24,4 +13,4 @@ const MonumentCollectionSchema = new mongoose.Schema({
     monuments: [{ type: Schema.Types.ObjectId, ref: "Monument" }]
 });
 
-export const MonumentCollectionModel = mongoose.model("monumentCollection", MonumentCollectionSchema);
+export const MonumentCollectionModel = mongoose.model("MonumentCollection", MonumentCollectionSchema);
