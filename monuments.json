@@ -1,11 +1,11 @@
 {
-  "monument1": {
+  "hand_of_hercules": {
     "name": "Hand of Hercules",
     "location": "Amman Citadel",
     "description": "A hand of a hercules statue",
     "modelUrl": "/Hand.glb"
   },
-  "monument2": {
+  "elbow_of_hercules": {
     "name": "Elbow of Hercules",
     "location": "Amman Citadel",
     "description": "An elbow of a hercules statue",
