@@ -4,8 +4,8 @@ import {createCollection, getCollection, getMonument, updateCollection} from "./
 const router = Router();
 
 router.post("/collection", createCollection);
+router.get("/collection/:userId", getCollection);
 router.put("/collection", updateCollection);
-router.get("/collection", getCollection);
 router.get("/monument", getMonument)
 
 export default router;

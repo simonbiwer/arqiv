@@ -13,12 +13,21 @@ export async function createCollection(req: Request, res: Response) {
     }
 }
 
-export function updateCollection(req: Request, res: Response) {
-    // Todo: update collection for user by adding new monument
+export async function getCollection(req: Request, res: Response) {
+    const userId = req.params.userId;
+    console.log(userId);
+    try {
+        const collection = await MonumentCollectionModel
+            .findOne({ userId })
+            // .populate("monuments");
+        res.status(200).send(collection);
+    } catch(error) {
+        res.status(500).send(error);
+    }
 }
 
-export function getCollection(req: Request, res: Response) {
-    // Todo: get collection for user
+export function updateCollection(req: Request, res: Response) {
+    // Todo: update collection for user by adding new monument
 }
 
 export function getMonument(req: Request, res: Response) {
