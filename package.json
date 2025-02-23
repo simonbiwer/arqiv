@@ -1,7 +1,7 @@
 {
   "name": "vcard-api",
   "version": "1.0.0",
-  "description": "A simple REST API to generate vCards using TypeScript.",
+  "description": "An application to manage Monument Collections",
   "main": "dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
@@ -10,7 +10,6 @@
     "lint": "eslint . --ext .ts"
   },
   "keywords": [
-    "vcard",
     "typescript",
     "rest-api",
     "express"
@@ -19,12 +18,12 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "vcards-js": "^1.0.0"
+    "mongoose": "^8.10.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.15",
-    "@types/vcards-js": "^2.10.5",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "@typescript-eslint/parser": "^6.5.0",
     "eslint": "^8.49.0",
