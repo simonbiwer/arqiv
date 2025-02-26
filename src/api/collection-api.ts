@@ -12,7 +12,7 @@ export async function createCollection(req: Request, res: Response) {
             userId,
             monuments: []
         }).save();
-        res.status(200).send(savedCollection);
+        res.status(200).send( {userId: savedCollection.userId} );
     } catch(error) {
         res.status(500).send(error);
     }
