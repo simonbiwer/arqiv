@@ -34,6 +34,7 @@ export async function getCollection(req: Request, res: Response) {
     }
 }
 
+// Todo: Dedicated response if monument was in collection already
 export async function updateCollection(req: Request, res: Response) {
     const { userId, monumentKey } = req.body;
     if (!userId || !monumentKey) {
@@ -52,7 +53,7 @@ export async function updateCollection(req: Request, res: Response) {
         if (!updatedCollection) {
             res.status(404).send("No collection for this userId found");
         } else {
-            res.status(200).send(updatedCollection);
+            res.status(200).send(monument);
         }
     }
 }
